@@ -9,6 +9,10 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_x11 = true
   config.ssh.forward_agent = true
 
+  # Disable /vagrant shared folder and instead sync to ~/postgis
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder ".", "/home/vagrant/postgis"
+
   # Global VirtualBox specific configurations
   config.vm.provider :virtualbox do |vb|
     # How much memory to use?
@@ -34,6 +38,6 @@ Vagrant.configure("2") do |config|
     trusty.vm.hostname = "postgis-ubuntu-trusty"
     trusty.vm.network :forwarded_port, guest: 5432, host: 15432
 
-    trusty.vm.provision :shell, :path => "scripts/ubuntu-trusty.sh", privileged: false
+    trusty.vm.provision :shell, :path => "scripts/ubuntu_trusty.sh", privileged: false
   end
 end
