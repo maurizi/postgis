@@ -13,8 +13,8 @@ sudo apt-get install -y -q libreadline-dev zlib1g-dev flex
 
 # PostGIS dependencies
 sudo apt-get install -y -q \
-    build-essential libgeos-c1 libgdal-dev libproj-dev libjson0-dev \
-    libxml2-utils xsltproc docbook-xsl docbook-mathml autoconf
+    build-essential libgdal-dev libproj-dev libjson0-dev libxml2-utils \
+    xsltproc docbook-xsl docbook-mathml autoconf
 
 # Enable debug builds
 export CFLAGS="-g -O0"
@@ -42,6 +42,20 @@ sudo -u postgres pg_ctl start -w -D /opt/postgresql/
 
 sudo -u postgres psql -c 'CREATE ROLE vagrant WITH superuser;'
 sudo -u postgres psql -c 'ALTER ROLE vagrant LOGIN;'
+
+cd ~
+# Download GEOS
+if [ ! -d geos-3.4.2 ]; then
+    wget -q http://download.osgeo.org/geos/geos-3.4.2.tar.bz2
+    bzip2 -d geos-3.4.2.tar.bz2
+    tar xf geos-3.4.2.tar
+fi
+
+# Comile GEOS
+cd ~/geos-3.4.2
+./configure
+make
+sudo make install
 
 # Compile PostGIS
 cd /vagrant
