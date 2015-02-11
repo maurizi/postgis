@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
     trusty.vm.hostname = "postgis-ubuntu-trusty"
     trusty.vm.network :forwarded_port, guest: 5432, host: 15432
 
-    trusty.vm.provision :shell, :path => "scripts/ubuntu_trusty.sh", privileged: false
+    trusty.vm.provision :shell, :path => "vagrant/ubuntu_trusty.sh", privileged: false
   end
 
   # Multi-machine settings below
@@ -49,6 +49,6 @@ Vagrant.configure("2") do |config|
     trusty.vm.hostname = "postgis-ubuntu-precise"
     trusty.vm.network :forwarded_port, guest: 5432, host: 25432
 
-    trusty.vm.provision :shell, :path => "scripts/ubuntu_precise.sh", privileged: false
+    trusty.vm.provision :shell, :path => "vagrant/ubuntu_precise.sh", privileged: false
   end
 end

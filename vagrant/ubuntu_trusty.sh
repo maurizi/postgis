@@ -24,6 +24,6 @@ if [ ! -d postgresql ]; then
     mv postgresql-9.3.6 postgresql
 fi
 
-sh ~/postgis/scripts/build_postgresql.sh
-sh ~/postgis/scripts/build_geos.sh
-sh ~/postgis/scripts/build_postgis.sh
+sh ~/postgis/vagrant/build_postgresql.sh
+sh ~/postgis/vagrant/build_geos.sh
+sh ~/postgis/vagrant/build_postgis.sh
