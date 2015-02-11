@@ -40,4 +40,15 @@ Vagrant.configure("2") do |config|
 
     trusty.vm.provision :shell, :path => "scripts/ubuntu_trusty.sh", privileged: false
   end
+
+  # Multi-machine settings below
+  config.vm.define "ubuntu-precise" do |trusty|
+    trusty.vm.box = "ubuntu/precise64"
+    # vm.box_url is required on older versions of Vagrant that do not support Vagrant cloud
+    trusty.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/precise64/versions/12.04.4/providers/virtualbox.box"
+    trusty.vm.hostname = "postgis-ubuntu-precise"
+    trusty.vm.network :forwarded_port, guest: 5432, host: 25432
+
+    trusty.vm.provision :shell, :path => "scripts/ubuntu_precise.sh", privileged: false
+  end
 end
