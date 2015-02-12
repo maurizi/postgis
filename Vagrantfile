@@ -50,4 +50,14 @@ Vagrant.configure("2") do |config|
 
     trusty.vm.provision :shell, :path => "vagrant/ubuntu_precise.sh", privileged: false
   end
+
+  config.vm.define "centos-7" do |trusty|
+    trusty.vm.box = "chef/centos-7.0"
+    # vm.box_url is required on older versions of Vagrant that do not support Vagrant cloud
+    trusty.vm.box_url = "https://vagrantcloud.com/chef/boxes/centos-7.0/versions/1.0.0/providers/virtualbox.box"
+    trusty.vm.hostname = "centos-7"
+    trusty.vm.network :forwarded_port, guest: 5432, host: 35432
+
+    trusty.vm.provision :shell, :path => "vagrant/centos_seven.sh", privileged: false
+  end
 end
