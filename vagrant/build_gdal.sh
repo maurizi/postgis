@@ -3,7 +3,7 @@
 # Download GDAL
 if [ ! -d gdal-1.10.1 ]; then
     cd ~
-    wget http://download.osgeo.org/gdal/1.10.1/gdal-1.10.1.tar.gz
+    wget -q http://download.osgeo.org/gdal/1.10.1/gdal-1.10.1.tar.gz
     tar xfz gdal-1.10.1.tar.gz
 fi
 

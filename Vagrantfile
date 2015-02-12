@@ -41,7 +41,6 @@ Vagrant.configure("2") do |config|
     trusty.vm.provision :shell, :path => "vagrant/ubuntu_trusty.sh", privileged: false
   end
 
-  # Multi-machine settings below
   config.vm.define "ubuntu-precise" do |trusty|
     trusty.vm.box = "ubuntu/precise64"
     # vm.box_url is required on older versions of Vagrant that do not support Vagrant cloud

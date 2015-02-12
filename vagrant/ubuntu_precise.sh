@@ -17,7 +17,7 @@ sudo apt-get install -y -q python-all-dev
 # PostGIS dependencies
 sudo apt-get install -y -q \
     build-essential libproj-dev libjson0-dev libxml2-utils \
-    xsltproc docbook-xsl docbook-mathml autoconf
+    xsltproc docbook-xsl docbook-mathml autoconf libtool
 
 # Download Postgresql (9.1.15 is the version in the Precise repo)
 if [ ! -d postgresql ]; then
