@@ -30,6 +30,8 @@ Vagrant.configure("2") do |config|
                   "/VirtualBox/GuestAdd/VBoxService/--timesync-interval", 1000]
   end
 
+  config.provision :shell, :path => "vagrant/start_postgresql.sh", run: "always"
+
   # Multi-machine settings below
   config.vm.define "ubuntu-trusty" do |trusty|
     trusty.vm.box = "ubuntu/trusty64"
