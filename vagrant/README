@@ -1,0 +1,15 @@
+Creating a development environment with Vagrant
+===============================================
+
+Vagrant (http://vagrantup.com) is a tool for automating the creation and provisioning of virtual machines.
+
+The Vagrantfile at the root of the repository defines a multi-machine setup, to allow for easily testing on different platforms.
+
+  https://docs.vagrantup.com/v2/multi-machine/
+
+To start a VM for a specific operating system, you must run ``vagrant up <os name>``.
+
+Currently the supported operating systems are:
+* ``ubuntu-precise``
+* ``ubuntu-trusty``
+* ``centos-7``
